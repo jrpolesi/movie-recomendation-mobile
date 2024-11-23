@@ -1,11 +1,13 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import {
+  BotPage,
   MoviePage,
   PopularMoviesPage,
   PopularSeriesPage,
   SeriePage,
+  WatchListPage,
 } from "./screens";
 import { colors } from "./styles/colors";
 
@@ -55,14 +57,14 @@ export function Navigation() {
         />
         <Drawer.Screen
           name="Watchlist"
-          component={() => <Text>Minha lista</Text>}
+          component={WatchListPage}
           options={{
             headerTitle: "Ver mais tarde",
           }}
         />
         <Drawer.Screen
           name="Bot"
-          component={() => <Text>Chatbot</Text>}
+          component={BotPage}
           options={{
             headerTitle: "Movie Bot",
           }}

@@ -13,4 +13,6 @@ export async function removeMovie(options = {}) {
   }
 
   await AsyncStorage.setItem(WATCH_LIST_KEY, JSON.stringify(value));
+
+  return value.movies;
 }

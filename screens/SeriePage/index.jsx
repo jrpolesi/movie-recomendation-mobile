@@ -18,7 +18,7 @@ export function SeriePage({ route }) {
     };
 
     fetchWatchList();
-  }, []);
+  }, [api]);
 
   const { data, isLoading } = useSerieDetails({ id });
 
@@ -32,13 +32,13 @@ export function SeriePage({ route }) {
         data && (
           <TitleDetails
             {...data}
-            isOnWatchList={watchList?.find((movie) => movie.id == id)}
+            isOnWatchList={watchList?.find((serie) => serie.id == id)}
             onAddToWatchList={async () => {
-              const updated = await api.watchList.addMovie({ movie: data });
+              const updated = await api.watchList.addSerie({ serie: data });
               setWatchList(updated);
             }}
             onRemoveFromWatchList={async () => {
-              const updated = await api.watchList.removeMovie({ movie: data });
+              const updated = await api.watchList.removeSerie({ serie: data });
               setWatchList(updated);
             }}
           />

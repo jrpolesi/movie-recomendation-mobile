@@ -17,7 +17,7 @@ export function MoviePage({ route }) {
     };
 
     fetchWatchList();
-  }, []);
+  }, [api]);
 
   const { data, isLoading } = useMovieDetails({ id });
 

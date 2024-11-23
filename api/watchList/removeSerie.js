@@ -13,4 +13,6 @@ export async function removeSerie(options = {}) {
   }
 
   await AsyncStorage.setItem(WATCH_LIST_KEY, JSON.stringify(value));
+
+  return value.series;
 }
