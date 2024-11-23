@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useToastErrorContext } from "../../contexts";
 
 export function useInfinityQuery(queryFn, options, onError) {
-  const setToastError = useToastErrorContext();
+  const { setToastError } = useToastErrorContext();
   const [pagination, setPagination] = useState({
     page: 1,
     totalPages: 0,

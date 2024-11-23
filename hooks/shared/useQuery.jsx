@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useToastErrorContext } from "../../contexts";
 
 export function useQuery(queryFn, options, onError) {
-  const setToastError = useToastErrorContext();
+  const { setToastError } = useToastErrorContext();
   const [data, setData] = useState(null);
   const [state, setState] = useState({ isLoading: false, error: null });
 

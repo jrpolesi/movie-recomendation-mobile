@@ -23,7 +23,9 @@ export function ToastError({ error, resetError }) {
   return (
     <View style={styles.toastError(colors)}>
       <Text style={styles.toastErrorIcon}>⚠️</Text>
-      <Text style={styles.toastErrorMessage(colors)}>{message}</Text>
+      <Text style={styles.toastErrorMessage(colors)}>
+        {error?.message ?? "Erro desconhecido"}
+      </Text>
     </View>
   );
 }

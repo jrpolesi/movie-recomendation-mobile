@@ -9,7 +9,7 @@ export function ToastErrorProvider({ children }) {
   const [error, setError] = useState();
 
   return (
-    <toastErrorContext.Provider value={{ setError }}>
+    <toastErrorContext.Provider value={{ setToastError: setError }}>
       {children}
 
       <ToastError error={error} resetError={() => setError(null)} />
