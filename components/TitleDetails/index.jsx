@@ -23,8 +23,6 @@ export function TitleDetails({
 
   return (
     <View style={styles.cardContainer}>
-      <Text style={styles.upperTitle}>{title}</Text>
-
       <Image
         style={styles.poster}
         source={{ uri: getImageURL(posterPath, 400) }}
@@ -41,23 +39,16 @@ export function TitleDetails({
           </Text>
         </View>
 
-        <Text style={[styles.genres, { color: colors.text }]}>
-          {genres?.join(" - ")}
-        </Text>
+        <Text style={styles.genres(colors)}>{genres?.join(" - ")}</Text>
 
-        <Text style={[styles.description, { color: colors.text }]}>
-          {overview}
-        </Text>
+        <Text style={styles.description}>{overview}</Text>
 
         <View style={styles.moreDetails}>
-          <Text
-            style={[
-              styles.vote,
-              { backgroundColor: colors.primary, color: colors.background },
-            ]}
-          >
-            {voteAverage?.toFixed(1)}
-          </Text>
+          <View style={styles.vote(colors)}>
+            <Text style={styles.voteText(colors)}>
+              {voteAverage?.toFixed(1)}
+            </Text>
+          </View>
           <View style={styles.releaseDate}>
             <Text style={{ color: colors.text }}>Lançamento</Text>
             <Text style={{ color: colors.text }}>{releaseDate}</Text>
@@ -81,51 +72,56 @@ export function TitleDetails({
 const createStyles = () =>
   StyleSheet.create({
     cardContainer: {
-      flexDirection: "column",
       gap: 20,
-    },
-    upperTitle: {
-      fontSize: 20,
     },
     poster: {
       width: "100%",
-      maxWidth: 400,
+      height: 200,
       alignSelf: "center",
     },
-    titleHeader: {
-      flexDirection: "column",
-      gap: 8,
-    },
-    originalInfo: {
-      fontStyle: "italic",
-      fontSize: 20,
-    },
     info: {
-      flexDirection: "column",
+      paddingHorizontal: 20,
+      paddingBottom: 10,
       alignItems: "flex-start",
       gap: 10,
     },
-    genres: {
-      color: "gray",
+    titleHeader: {
+      gap: 4,
     },
+    upperTitle: {
+      fontSize: 22,
+    },
+    originalInfo: {
+      fontStyle: "italic",
+      fontSize: 14,
+    },
+    genres: (colors) => ({
+      color: colors.textSecondary,
+      marginTop: 10,
+    }),
     description: {
       marginTop: 10,
     },
     moreDetails: {
+      flexDirection: "row",
       marginVertical: 20,
-      gap: 20,
+      gap: 30,
     },
-    vote: {
+    vote: (colors) => ({
       justifyContent: "center",
       alignItems: "center",
-      width: 40,
-      height: 40,
-      borderRadius: 50,
-    },
+      width: 50,
+      height: 50,
+      borderRadius: 25,
+      backgroundColor: colors.primary,
+    }),
+    voteText: (colors) => ({
+      color: colors.textContrastColor,
+      fontSize: 18,
+    }),
     releaseDate: {
       justifyContent: "center",
       alignItems: "center",
-      flexDirection: "column",
-      gap: 8,
+      gap: 4,
     },
   });

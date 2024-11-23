@@ -1,7 +1,12 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { StyleSheet, Text } from "react-native";
-import { MoviePage, PopularMoviesPage, PopularSeriesPage } from "./screens";
+import {
+  MoviePage,
+  PopularMoviesPage,
+  PopularSeriesPage,
+  SeriePage,
+} from "./screens";
 import { colors } from "./styles/colors";
 
 const Drawer = createDrawerNavigator();
@@ -42,7 +47,7 @@ export function Navigation() {
         />
         <Drawer.Screen
           name="Serie"
-          component={() => <Text>Detalhes da série</Text>}
+          component={SeriePage}
           options={{
             headerTitle: "Detalhes da série",
             drawerItemStyle: styles.hideItem,

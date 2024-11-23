@@ -1,7 +1,8 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { WATCH_LIST_KEY } from "../storageKeys";
 
 export async function addSerie(options = {}) {
-  const stringValue = localStorage.getItem(WATCH_LIST_KEY) ?? "{}";
+  const stringValue = (await AsyncStorage.getItem(WATCH_LIST_KEY)) ?? "{}";
 
   const value = JSON.parse(stringValue);
 
@@ -11,7 +12,7 @@ export async function addSerie(options = {}) {
     value.series = [options.serie];
   }
 
-  localStorage.setItem(WATCH_LIST_KEY, JSON.stringify(value));
+  await AsyncStorage.setItem(WATCH_LIST_KEY, JSON.stringify(value));
 
   return value.series;
 }

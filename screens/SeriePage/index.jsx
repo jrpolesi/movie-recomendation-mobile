@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { TitleDetails } from "../../components";
 import { useTheMovieDBContext } from "../../contexts";
-import { useMovieDetails } from "../../hooks";
-export function MoviePage({ route }) {
+import { useSerieDetails } from "../../hooks";
+
+export function SeriePage({ route }) {
   const { id } = route.params;
 
   const api = useTheMovieDBContext();
@@ -12,14 +13,14 @@ export function MoviePage({ route }) {
 
   useEffect(() => {
     const fetchWatchList = async () => {
-      const watchList = await api.watchList.getMovies();
+      const watchList = await api.watchList.getSeries();
       setWatchList(watchList);
     };
 
     fetchWatchList();
   }, []);
 
-  const { data, isLoading } = useMovieDetails({ id });
+  const { data, isLoading } = useSerieDetails({ id });
 
   return (
     <View>

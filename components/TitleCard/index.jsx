@@ -20,14 +20,18 @@ export function TitleCard({
 
       <View style={styles.titleCardInfo}>
         {!!genres.length && (
-          <Text style={styles.titleCardGenres}>{genres.join(" - ")}</Text>
+          <Text style={styles.titleCardGenres(colors)}>
+            {genres.join(" - ")}
+          </Text>
         )}
 
         <View style={styles.titleCardDetails}>
           <Text style={styles.titleCardTitle}>{title}</Text>
 
           {releaseDate && (
-            <Text style={styles.titleCardReleaseDate}>{releaseDate}</Text>
+            <Text style={styles.titleCardReleaseDate(colors)}>
+              {releaseDate}
+            </Text>
           )}
         </View>
       </View>
@@ -56,20 +60,20 @@ const styles = StyleSheet.create({
   titleCardInfo: {
     paddingTop: 10,
   },
-  titleCardGenres: {
-    fontSize: 12,
-    color: "#888",
-  },
+  titleCardGenres: (colors) => ({
+    fontSize: 14,
+    color: colors.textSecondary,
+  }),
   titleCardDetails: {
-    marginTop: 10,
+    marginTop: 8,
   },
   titleCardTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "bold",
   },
-  titleCardReleaseDate: {
+  titleCardReleaseDate: (colors) => ({
     fontSize: 14,
-    color: "#888",
-    marginTop: 3,
-  },
+    color: colors.textSecondary,
+    marginTop: 4,
+  }),
 });
