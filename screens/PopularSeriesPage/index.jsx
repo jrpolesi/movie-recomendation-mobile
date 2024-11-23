@@ -1,8 +1,11 @@
 import { ActivityIndicator, ScrollView, StyleSheet, View } from "react-native";
 import { SystemButton, TitlesList } from "../../components";
-import { useDiscoverSeriesInfinity } from "../../hooks";
+import { useTheMovieDBContext } from "../../contexts";
+import { useDiscoverSeriesInfinity, useWatchListSeries } from "../../hooks";
 
 export function PopularSeriesPage({ navigation }) {
+  const api = useTheMovieDBContext();
+
   const {
     data,
     isLoading,
@@ -11,6 +14,8 @@ export function PopularSeriesPage({ navigation }) {
     sort_by: "popularity.desc",
   });
 
+  const { data: watchList, updateWatchList } = useWatchListSeries();
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.popularListContainer}>
@@ -18,6 +23,15 @@ export function PopularSeriesPage({ navigation }) {
           <TitlesList
             titles={data}
             onPress={(id) => navigation.navigate("Serie", { id })}
+            isOnWatchList={(id) => watchList.find((serie) => serie.id === id)}
+            onAddToWatchList={async (serie) => {
+              const updated = await api.watchList.addSerie({ serie });
+              updateWatchList(updated);
+            }}
+            onRemoveFromWatchList={async (serie) => {
+              const updated = await api.watchList.removeSerie({ serie });
+              updateWatchList(updated);
+            }}
           />
         )}
         {isLoading && <ActivityIndicator size={50} />}
