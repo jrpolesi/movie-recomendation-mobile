@@ -1,5 +1,5 @@
-import { getMovieGenres } from "./getMovieGenres";
-import { getSerieGenres } from "./getSerieGenres";
+import { getMovieGenres } from "./getMovieGenres.js";
+import { getSerieGenres } from "./getSerieGenres.js";
 
 export const genres = {
   getMovieGenres,

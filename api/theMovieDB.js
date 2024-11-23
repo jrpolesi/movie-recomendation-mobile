@@ -1,9 +1,9 @@
-import { discover } from "./discover";
-import { genres } from "./genres";
-import { movies } from "./movies";
-import { search } from "./search";
-import { series } from "./series";
-import { watchList } from "./watchList";
+import { discover } from "./discover/index.js";
+import { genres } from "./genres/index.js";
+import { movies } from "./movies/index.js";
+import { search } from "./search/index.js";
+import { series } from "./series/index.js";
+import { watchList } from "./watchList/index.js";
 
 export class TheMovieDB {
   baseURL = "https://api.themoviedb.org/3";

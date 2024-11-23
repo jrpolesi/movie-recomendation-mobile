@@ -8,8 +8,8 @@ import {
   PopularSeriesPage,
   SeriePage,
   WatchListPage,
-} from "./screens";
-import { colors } from "./styles/colors";
+} from "./screens/index.jsx";
+import { colors } from "./styles/colors.js";
 
 const Drawer = createDrawerNavigator();
 

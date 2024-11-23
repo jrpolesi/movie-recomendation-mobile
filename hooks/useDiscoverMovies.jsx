@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { useTheMovieDBContext } from "../contexts/TheMovieDB";
-import { usePaginatedQuery } from "./shared/usePaginatedQuery";
-import { useQuery } from "./shared/useQuery";
+import { useTheMovieDBContext } from "../contexts/TheMovieDB.jsx";
+import { usePaginatedQuery } from "./shared/usePaginatedQuery.jsx";
+import { useQuery } from "./shared/useQuery.jsx";
 
 /**
  *

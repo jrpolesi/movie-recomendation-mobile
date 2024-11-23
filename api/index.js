@@ -1,2 +1,2 @@
-export * from "./getImageURL";
-export * from "./theMovieDB";
+export * from "./getImageURL.js";
+export * from "./theMovieDB.js";

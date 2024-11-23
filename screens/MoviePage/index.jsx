@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
-import { TitleDetails } from "../../components";
-import { useTheMovieDBContext } from "../../contexts";
-import { useMovieDetails } from "../../hooks";
+import { TitleDetails } from "../../components/index.jsx";
+import { useTheMovieDBContext } from "../../contexts/index.jsx";
+import { useMovieDetails } from "../../hooks/index.jsx";
 export function MoviePage({ route }) {
   const { id } = route.params;
 

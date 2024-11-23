@@ -1,4 +1,4 @@
-import { getSerieDetails } from "./getSerieDetails";
+import { getSerieDetails } from "./getSerieDetails.js";
 
 export const series = {
   getSerieDetails,

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { ToastError } from "../components/ToastError";
+import { ToastError } from "../components/index.jsx";
 
 const toastErrorContext = createContext();
 

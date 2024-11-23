@@ -1,8 +1,8 @@
 import { useTheme } from "@react-navigation/native";
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { getImageURL } from "../../api";
-import { SystemButton } from "../SystemButton";
+import { getImageURL } from "../../api/index.js";
+import { SystemButton } from "../SystemButton/index.jsx";
 
 export function TitleDetails({
   id,

@@ -1,9 +1,9 @@
-import { addMovie } from "./addMovie";
-import { addSerie } from "./addSerie";
-import { getMovies } from "./getMovies";
-import { getSeries } from "./getSeries";
-import { removeMovie } from "./removeMovie";
-import { removeSerie } from "./removeSerie";
+import { addMovie } from "./addMovie.js";
+import { addSerie } from "./addSerie.js";
+import { getMovies } from "./getMovies.js";
+import { getSeries } from "./getSeries.js";
+import { removeMovie } from "./removeMovie.js";
+import { removeSerie } from "./removeSerie.js";
 
 export const watchList = {
   getMovies,

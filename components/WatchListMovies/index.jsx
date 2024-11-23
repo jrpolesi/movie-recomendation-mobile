@@ -1,8 +1,8 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
-import { useTheMovieDBContext } from "../../contexts";
-import { useWatchListMovies } from "../../hooks";
-import { TitlesList } from "../TitlesList";
+import { useTheMovieDBContext } from "../../contexts/index.jsx";
+import { useWatchListMovies } from "../../hooks/index.jsx";
+import { TitlesList } from "../TitlesList/index.jsx";
 
 export function WatchListMovies({ onPress }) {
   const api = useTheMovieDBContext();

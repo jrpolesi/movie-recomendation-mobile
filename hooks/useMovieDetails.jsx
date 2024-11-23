@@ -1,5 +1,5 @@
-import { useTheMovieDBContext } from "../contexts/TheMovieDB";
-import { useQuery } from "./shared/useQuery";
+import { useTheMovieDBContext } from "../contexts/TheMovieDB.jsx";
+import { useQuery } from "./shared/useQuery.jsx";
 
 /**
  *

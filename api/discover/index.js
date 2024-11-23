@@ -1,5 +1,5 @@
-import { getMovies } from "./getMovies";
-import { getSeries } from "./getSeries";
+import { getMovies } from "./getMovies.js";
+import { getSeries } from "./getSeries.js";
 
 export const discover = {
   getMovies,

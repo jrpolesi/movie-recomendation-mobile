@@ -5,7 +5,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from "react-native-reanimated";
-import { getImageURL } from "../../api";
+import { getImageURL } from "../../api/index.js";
 
 export function TitleCard({
   genres = [],

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
-import { TitleDetails } from "../../components";
-import { useTheMovieDBContext } from "../../contexts";
-import { useSerieDetails } from "../../hooks";
+import { TitleDetails } from "../../components/index.jsx";
+import { useTheMovieDBContext } from "../../contexts/index.jsx";
+import { useSerieDetails } from "../../hooks/index.jsx";
 
 export function SeriePage({ route }) {
   const { id } = route.params;

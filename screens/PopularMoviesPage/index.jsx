@@ -1,7 +1,10 @@
 import { ActivityIndicator, ScrollView, StyleSheet, View } from "react-native";
-import { SystemButton, TitlesList } from "../../components";
-import { useTheMovieDBContext } from "../../contexts";
-import { useDiscoverMoviesInfinity, useWatchListMovies } from "../../hooks";
+import { SystemButton, TitlesList } from "../../components/index.jsx";
+import { useTheMovieDBContext } from "../../contexts/index.jsx";
+import {
+  useDiscoverMoviesInfinity,
+  useWatchListMovies,
+} from "../../hooks/index.jsx";
 
 export function PopularMoviesPage({ navigation }) {
   const api = useTheMovieDBContext();

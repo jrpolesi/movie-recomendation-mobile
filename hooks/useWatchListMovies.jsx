@@ -1,6 +1,6 @@
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback, useState } from "react";
-import { useTheMovieDBContext } from "../contexts";
+import { useTheMovieDBContext } from "../contexts/index.jsx";
 
 export function useWatchListMovies() {
   const [movies, setMovies] = useState([]);

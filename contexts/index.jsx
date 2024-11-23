@@ -1,2 +1,2 @@
-export * from "./TheMovieDB";
-export * from "./ToastError";
+export * from "./TheMovieDB.jsx";
+export * from "./ToastError.jsx";

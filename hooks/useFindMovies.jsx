@@ -1,5 +1,5 @@
-import { useTheMovieDBContext } from "../contexts";
-import { useQuery } from "./shared/useQuery";
+import { useTheMovieDBContext } from "../contexts/index.jsx";
+import { useQuery } from "./shared/useQuery.jsx";
 
 export function useFindMovie() {
   const api = useTheMovieDBContext();

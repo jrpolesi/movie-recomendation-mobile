@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, View } from "react-native";
-import { TitleCard } from "../TitleCard";
+import { TitleCard } from "../TitleCard/index.jsx";
 
 export function TitlesList({
   titles,
