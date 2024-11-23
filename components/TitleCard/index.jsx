@@ -76,10 +76,7 @@ export function TitleCard({
   return (
     <GestureDetector gesture={gesture}>
       <Animated.View style={[styles.container(colors), animatedStyle]}>
-        <Image
-          source={{ uri: getImageURL(posterPath, 400) }}
-          style={styles.image}
-        />
+        <Image source={getImageURL(posterPath, 400)} style={styles.image} />
 
         <View style={styles.titleCardInfo}>
           {!!genres.length && (
@@ -114,15 +111,15 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    width: 350,
-    marginHorizontal: "auto",
+    width: "80%",
+    alignSelf: "center",
   }),
   image: {
     width: "100%",
     height: 200,
   },
   titleCardInfo: {
-    paddingTop: 10,
+    padding: 10,
   },
   titleCardGenres: (colors) => ({
     fontSize: 14,

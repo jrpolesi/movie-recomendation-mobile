@@ -25,7 +25,7 @@ export function TitleDetails({
     <View style={styles.cardContainer}>
       <Image
         style={styles.poster}
-        source={{ uri: getImageURL(posterPath, 400) }}
+        source={getImageURL(posterPath, 400)}
         alt={title}
       />
 
