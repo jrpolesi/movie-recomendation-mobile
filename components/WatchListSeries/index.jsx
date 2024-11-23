@@ -36,7 +36,6 @@ export function WatchListSeries({ onPress }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
     gap: 20,
   },
   emptyWatchList: {
