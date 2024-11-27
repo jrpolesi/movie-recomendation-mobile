@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { ActivityIndicator, Platform } from "react-native";
 import { TheMovieDB } from "../api/index.js";
-import { Prompt } from "../components/index.jsx";
+import { Prompt } from "../components/Prompt/index.jsx";
 
 const TheMovieDBContext = createContext();
 

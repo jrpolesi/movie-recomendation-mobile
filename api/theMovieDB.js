@@ -3,6 +3,7 @@ import { genres } from "./genres/index.js";
 import { movies } from "./movies/index.js";
 import { search } from "./search/index.js";
 import { series } from "./series/index.js";
+import { session } from "./session/index.js";
 import { watchList } from "./watchList/index.js";
 
 export class TheMovieDB {
@@ -47,5 +48,12 @@ export class TheMovieDB {
 
   series = {
     getSerieDetails: (...args) => series.getSerieDetails.call(this, ...args),
+  };
+
+  session = {
+    getTempRequestToken: (...args) =>
+      session.getTempRequestToken.call(this, ...args),
+    createSession: (...args) => session.createSession.call(this, ...args),
+    deleteSession: (...args) => session.deleteSession.call(this, ...args),
   };
 }
