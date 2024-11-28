@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
-import { SystemButton } from "../../components/index.jsx";
+import { SystemButton } from "../../components/SystemButton/index.jsx";
 import {
   useCreateSession,
   useRedirectToTheMovieDBLogin,

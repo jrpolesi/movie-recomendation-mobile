@@ -3,7 +3,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const SESSION_KEY = "@movie.session";
 
-const sessionContext = createContext();
+const sessionContext = createContext({
+  session: undefined,
+  saveSession: () => {},
+  clearSession: () => {},
+});
 
 export function useSessionContext() {
   return useContext(sessionContext);
@@ -16,7 +20,8 @@ export function SessionProvider({ children }) {
     async function getSessionFromStorage() {
       const sessionString = (await AsyncStorage.getItem(SESSION_KEY)) ?? "null";
 
-      return JSON.parse(sessionString) ?? undefined;
+      const session = JSON.parse(sessionString) ?? undefined;
+      setSession(session);
     }
 
     if (!session) {

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { WatchListMovies, WatchListSeries } from "../../components/index.jsx";
 import { SystemButton } from "../../components/SystemButton/index.jsx";
+import { WatchListMovies } from "../../components/WatchListMovies/index.jsx";
+import { WatchListSeries } from "../../components/WatchListSeries/index.jsx";
 
 const tabs = [
   {

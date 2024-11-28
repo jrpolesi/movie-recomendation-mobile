@@ -1,14 +1,8 @@
-import Icon from "@expo/vector-icons/FontAwesome6.js";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItem,
-  DrawerItemList,
-} from "@react-navigation/drawer";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
-import { ActivityIndicator, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { CustomDrawerContent } from "./components/CustomDrawerContent/index.jsx";
 import { useSessionContext } from "./contexts/index.jsx";
-import { useLogout } from "./hooks/index.jsx";
 import {
   BotPage,
   LoginPage,
@@ -30,34 +24,6 @@ const theme = {
     ...colors,
   },
 };
-
-function CustomDrawerContent(props) {
-  const { session } = useSessionContext();
-  const { logout, isLoading } = useLogout();
-
-  const isAuthenticaded = !!session?.id;
-  return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-      {isAuthenticaded && (
-        <DrawerItem
-          label="Sair"
-          onPress={async () => {
-            await logout();
-            props?.navigation?.closeDrawer();
-          }}
-          icon={() =>
-            isLoading ? (
-              <ActivityIndicator size={15} />
-            ) : (
-              <Icon size={15} name="arrow-right-from-bracket" />
-            )
-          }
-        />
-      )}
-    </DrawerContentScrollView>
-  );
-}
 
 export function Navigation() {
   const { session } = useSessionContext();
