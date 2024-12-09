@@ -1,6 +1,6 @@
 import { useTheme } from "@react-navigation/native";
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Platform, StyleSheet, Text, View } from "react-native";
 import { getImageURL } from "../../api/index.js";
 import { SystemButton } from "../SystemButton/index.jsx";
 
@@ -19,7 +19,8 @@ export function TitleDetails({
   isOnWatchList,
 }) {
   const { colors } = useTheme();
-  const styles = createStyles();
+
+  const isIOS = Platform.OS === "ios";
 
   return (
     <View style={styles.cardContainer}>
@@ -44,7 +45,7 @@ export function TitleDetails({
         <Text style={styles.description}>{overview}</Text>
 
         <View style={styles.moreDetails}>
-          <View style={styles.vote(colors)}>
+          <View style={[styles.vote(colors), !isIOS && styles.notIOSVote]}>
             <Text style={styles.voteText(colors)}>
               {voteAverage?.toFixed(1)}
             </Text>
@@ -69,59 +70,63 @@ export function TitleDetails({
   );
 }
 
-const createStyles = () =>
-  StyleSheet.create({
-    cardContainer: {
-      gap: 20,
-    },
-    poster: {
-      width: "100%",
-      height: 200,
-      alignSelf: "center",
-    },
-    info: {
-      paddingHorizontal: 20,
-      paddingBottom: 10,
-      alignItems: "flex-start",
-      gap: 10,
-    },
-    titleHeader: {
-      gap: 4,
-    },
-    upperTitle: {
-      fontSize: 22,
-    },
-    originalInfo: {
-      fontStyle: "italic",
-      fontSize: 14,
-    },
-    genres: (colors) => ({
-      color: colors.textSecondary,
-      marginTop: 10,
-    }),
-    description: {
-      marginTop: 10,
-    },
-    moreDetails: {
-      flexDirection: "row",
-      marginVertical: 20,
-      gap: 30,
-    },
-    vote: (colors) => ({
-      justifyContent: "center",
-      alignItems: "center",
-      width: 50,
-      height: 50,
-      borderRadius: 25,
-      backgroundColor: colors.primary,
-    }),
-    voteText: (colors) => ({
-      color: colors.textContrastColor,
-      fontSize: 18,
-    }),
-    releaseDate: {
-      justifyContent: "center",
-      alignItems: "center",
-      gap: 4,
-    },
-  });
+const styles = StyleSheet.create({
+  cardContainer: {
+    gap: 20,
+  },
+  poster: {
+    width: "100%",
+    height: 200,
+    alignSelf: "center",
+  },
+  info: {
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+    alignItems: "flex-start",
+    gap: 10,
+  },
+  titleHeader: {
+    gap: 4,
+  },
+  upperTitle: {
+    fontSize: 22,
+  },
+  originalInfo: {
+    fontStyle: "italic",
+    fontSize: 14,
+  },
+  genres: (colors) => ({
+    color: colors.textSecondary,
+    marginTop: 10,
+  }),
+  description: {
+    marginTop: 10,
+  },
+  moreDetails: {
+    flexDirection: "row",
+    marginVertical: 20,
+    gap: 30,
+  },
+  vote: (colors) => ({
+    justifyContent: "center",
+    alignItems: "center",
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: colors.primary,
+  }),
+  notIOSVote: {
+    elevation: 5,
+    shadowColor: "#000000",
+    borderRadius: 5,
+  },
+  voteText: (colors) => ({
+    color: colors.textContrastColor,
+    fontSize: 18,
+  }),
+  releaseDate: {
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 4,
+  },
+});

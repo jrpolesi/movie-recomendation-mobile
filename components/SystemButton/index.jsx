@@ -1,6 +1,7 @@
 import { useTheme } from "@react-navigation/native";
 import {
   ActivityIndicator,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -9,8 +10,13 @@ import {
 export function SystemButton({ isLoading, children, ...props }) {
   const { colors } = useTheme();
 
+  const isIOS = Platform.OS === "ios";
+
   return (
-    <TouchableOpacity {...props} style={[styles.button(colors), props.style]}>
+    <TouchableOpacity
+      {...props}
+      style={[styles.button(colors), !isIOS && styles.noIOSStyle, props.style]}
+    >
       {isLoading ? (
         <ActivityIndicator />
       ) : (
@@ -28,6 +34,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 0,
   }),
+  noIOSStyle: {
+    elevation: 5,
+    shadowColor: "#000000",
+    borderRadius: 0,
+  },
   buttonText: (colors) => ({
     color: colors.textContrastColor,
   }),

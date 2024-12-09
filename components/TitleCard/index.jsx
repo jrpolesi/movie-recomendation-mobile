@@ -1,5 +1,5 @@
 import { useTheme } from "@react-navigation/native";
-import { Alert, Image, StyleSheet, Text, View } from "react-native";
+import { Alert, Image, Platform, StyleSheet, Text, View } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
   useAnimatedStyle,
@@ -20,6 +20,8 @@ export function TitleCard({
   const { colors } = useTheme();
   const translateX = useSharedValue(0);
   const isAlertOpen = useSharedValue(false);
+
+  const isIOS = Platform.OS === "ios";
 
   function handlePanGesture(event) {
     const { translationX } = event;
@@ -75,7 +77,13 @@ export function TitleCard({
 
   return (
     <GestureDetector gesture={gesture}>
-      <Animated.View style={[styles.container(colors), animatedStyle]}>
+      <Animated.View
+        style={[
+          styles.container(colors),
+          !isIOS && styles.nonIOSContainer,
+          animatedStyle,
+        ]}
+      >
         <Image source={getImageURL(posterPath, 400)} style={styles.image} />
 
         <View style={styles.titleCardInfo}>
@@ -106,14 +114,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
     backgroundColor: colors.background,
-    elevation: 3,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
     width: "80%",
     alignSelf: "center",
   }),
+  nonIOSContainer: {
+    elevation: 8,
+    shadowColor: "#000000",
+    padding: 10,
+    borderRadius: 0,
+  },
   image: {
     width: "100%",
     height: 200,
